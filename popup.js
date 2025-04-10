@@ -51,10 +51,19 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 加载设置
     function loadSettings() {
+      const slider = document.querySelector('.slider');
+      // 禁用初始动画
+      slider.classList.add('no-transition');
+      
       chrome.storage.local.get(['isEnabled', 'paramsToRemove', 'cleanLinksBeforeClick'], (result) => {
         enableToggle.checked = result.isEnabled !== false;
         loadParamList(result.paramsToRemove || []);
         cleanLinksBeforeClick.checked = result.cleanLinksBeforeClick || false;
+
+        // 去除禁用动画的类，这样后续的手动切换仍然会有动画效果
+        requestAnimationFrame(() => {
+          slider.classList.remove('no-transition');
+        });
       });
     }
     

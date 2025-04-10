@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "WhatANeatUrl",
-    "description": "自动移除 URL 中的追踪参数，如 ?ref=xxx",
+    "description": "Trims tracking params from URLs automatically",
     "version": "1.0",
     "permissions": [
       "tabs",
